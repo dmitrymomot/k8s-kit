@@ -14,7 +14,7 @@ spec:
           image: redis:alpine
           imagePullPolicy: Always
           ports:
-            - containerPort: 26379
+            - containerPort: 6379
           volumeMounts:
             - mountPath: /redis-master-data
               name: redisdata
