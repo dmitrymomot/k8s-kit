@@ -1,12 +1,12 @@
-# dataspark-k8s
+# Kubernetes Services Kit
 
-Dataspark kubernetes infrastructure
+Kubernetes infrastructure
 
 ## Including services
 
 * Postgres (with external port and not)
 * Nats cluster
-* Redis cluster
+* Redis cluster and single node
 
 ## Usage
 
