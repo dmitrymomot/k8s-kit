@@ -26,8 +26,6 @@ spec:
               value: web
             - name: MICRO_API_ADDRESS
               value: ':8081'
-            - name: MICRO_API_NAMESPACE
-              value: 'micro'
             - name: MICRO_ENABLE_STATS
               value: 'true'
             - name: STATS_AUTH_USER
@@ -44,7 +42,7 @@ spec:
               value: 'Content-Type:text/plain'
             - name: INDEX_BODY
               value: 'hello world'
-          image: saaskit/micro:kubernetes
+          image: microhq/micro:kubernetes
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
