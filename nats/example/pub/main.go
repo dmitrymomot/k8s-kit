@@ -18,10 +18,12 @@ func main() {
 	}
 	defer nc.Close()
 
-	ticker := time.NewTicker(2 * time.Second)
+	ticker := time.NewTicker(60 * time.Second)
 	defer ticker.Stop()
 
 	uuid := uuid.NewV1().String()
+
+	nc.Publish("current_time", []byte(fmt.Sprintf("publisher %s: Current time is %s", uuid, time.Now().String())))
 
 	wg.Add(1)
 	go func() {
