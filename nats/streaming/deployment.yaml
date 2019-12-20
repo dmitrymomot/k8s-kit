@@ -13,6 +13,7 @@ spec:
     shortNames: ["stanclusters", "stancluster"]
   scope: Namespaced
   version: v1alpha1
+
 ---
 apiVersion: apps/v1
 kind: Deployment

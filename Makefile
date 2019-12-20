@@ -13,6 +13,7 @@ restart: down up info ## Restart of service
 
 info: ## Get kubernetes cluster information
 	@kubectl get all
+	# @kubectl get all --all-namespaces
 
 log: ## Show logs
 	@kubectl logs $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS)) --all-containers=true

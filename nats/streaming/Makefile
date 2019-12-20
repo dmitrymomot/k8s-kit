@@ -7,6 +7,8 @@ apply:
 	@sleep 10
 	@kubectl get crd
 	@kubectl apply -f nats/streaming/cluster.yaml
+	@sleep 3
+	@kubectl get natsstreamingcluster.streaming.nats.io
 
 delete:
 	@kubectl delete \
