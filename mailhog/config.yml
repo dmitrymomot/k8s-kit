@@ -1,0 +1,13 @@
+service:
+  annotations: {}
+  clusterIP: ""
+  externalIPs: []
+  loadBalancerIP: ""
+  loadBalancerSourceRanges: []
+  type: LoadBalancer
+  port:
+    http: 8025
+    smtp: 1025
+  nodePort:
+    http: 8025
+    smtp: 1025
