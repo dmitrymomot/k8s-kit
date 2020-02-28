@@ -1,7 +1,14 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: micro-api
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: micro-api
+  creationTimestamp: null
 spec:
   replicas: 1
   selector:
@@ -14,18 +21,23 @@ spec:
       maxUnavailable: 50%
   template:
     metadata:
+      annotations:
+        config.linkerd.io/skip-outbound-ports: "4222,5432,6379,443,80"
+        linkerd.io/inject: disabled
+      creationTimestamp: null
       labels:
         name: micro-api
     spec:
+      serviceAccountName: micro-api
       containers:
         - name: api
           env:
             - name: MICRO_API_ADDRESS
-              value: ':8080'
+              value: ":8080"
             - name: MICRO_API_HANDLER
-              value: 'api'
+              value: "api"
             - name: MICRO_ENABLE_STATS
-              value: 'true'
+              value: "true"
           args:
             - api
           image: microhq/micro:kubernetes
@@ -33,3 +45,4 @@ spec:
           ports:
             - containerPort: 8080
               name: micro-api-port
+status: {}
