@@ -1,3 +1,6 @@
+# https://github.com/dgraph-io/charts/
+# https://github.com/dgraph-io/charts/blob/master/charts/dgraph/README.md
+
 .PHONY: apply delete
 
 apply:
