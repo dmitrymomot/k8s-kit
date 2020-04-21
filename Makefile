@@ -12,8 +12,11 @@ down: ## Shut down a service. Usage example: make down api
 restart: down up info ## Restart of service
 
 info: ## Get kubernetes cluster information
-	@kubectl get all
-	# @kubectl get all --all-namespaces
+ifeq ($(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS)),)
+	kubectl get all
+else
+	make -f $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))/Makefile info
+endif
 
 log: ## Show logs
 	@kubectl logs $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS)) --all-containers=true
